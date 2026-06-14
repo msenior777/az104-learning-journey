@@ -1,7 +1,7 @@
 # AZ-104 Azure Administrator Training Log
 
 ## Core Resources Used
-* **Official Courseware:** [Microsoft Learn AZ-104 Practice Paths](https://microsoft.com)
+* **Official Courseware:** [Microsoft Learn AZ-104 Practice Paths](https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/?practice-assessment-type=certification)
 * **Lab Instructions:** [Microsoft Learning AZ-104 GitHub Labs](https://github.com/MicrosoftLearning/AZ-104-MicrosoftAzureAdministrator)
 * **Videos:** [John Savill's AZ-104 Exam Cram on YouTube](https://youtube.com)
 * **Linkedin Videos:** [Prepare for Microsoft Cert Exam AZ-104: Microsoft Azure Administrator](https://www.linkedin.com/events/prepareformicrosoftcertexamaz-17464372536965787649/theater/)
