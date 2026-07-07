@@ -1,4 +1,5 @@
-## AZ-104 Azure Administrator Micro-Labs
+# AZ-104 Azure Administrator Micro-Labs
+
 ## 🧪 Lab 1: The Cross-Region Logging & Storage Matrix
 
 * **Objective:** Verify cross-region capabilities for Log Analytics vs. Event Hub / Storage destinations.
