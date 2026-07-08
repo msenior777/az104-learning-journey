@@ -39,22 +39,34 @@
 * **Objective:** Mount a persistent, multi-instance file volume and eliminate the "Azure Tables" exam distractor.
 * **Exam Trap:** Real database or virtual machine backup files (`.bak`) require traditional file structures or object stores. They can *never* be stored inside structured NoSQL key-attribute stores like Azure Tables.
 
-#### 🏁 Step-by-Step Instructions
+## 💾 Step-by-Step Execution: Lab 2
 
-1. **Deploy Storage Infrastructure:**
-   * Create a Resource Group named `rg-labs-storage`.
-   * Create a standard general-purpose v2 Storage Account (`stbackuplab104`).
+### Step 1: Create the Storage Account Base
 
-2. **Provision the File Share:**
-   * Open the storage account blade, navigate to **Data storage** -> **File shares**.
-   * Create a new file share named `sql-backup-share` (Set a strict quota of 1 GiB to control costs).
+1. In the top search bar, type **Storage accounts** and click **Create**.
+2. **Resource Group:** Click **Create new** and name it `rg-labs-storage`.
+3. **Storage account name:** Type a unique lowercase name (e.g., `stbackuplab` followed by your initials or a random number).
+4. **Region:** Choose your preferred region (e.g., East US).
+5. Leave everything else default and click **Review + create** → **Create**.
 
-3. **Analyze the Multi-Instance Connection Logic:**
-   * Click into `sql-backup-share` and click **Connect**.
-   * Toggle between the **Windows**, **Linux**, and **macOS** operating system tabs.
-   * Review the generated script block. Note how Azure utilizes **Port 445 (SMB)** or NFS to let multiple distinct VMs or external database instances mount the exact same file volume natively.
+### Step 2: Provision the File Share
 
-4. **Teardown:** Delete `rg-labs-storage`.
+1. Once deployed, open your new storage account resource.
+2. In the left-hand menu blade under **Data storage**, click **File shares**.
+3. Click the **+ File share** button at the top.
+4. **Name:** Type exactly `sql-backup-share`.
+5. **Tier:** Leave it on **Transaction optimized** (perfect for low-cost backup simulation).
+6. Click **Review + create** → **Create**.
+
+### Step 3: Analyze the Multi-Instance Connection Logic
+
+1. Click directly into your newly created `sql-backup-share`.
+2. Look at the top menu bar and click the **Connect** icon 🔌.
+3. A panel will slide out on the right. Toggle between the **Windows**, **Linux**, and **macOS** tabs.
+4. Look at the script it generates for you.
+
+### Step 4: Clean-up
+1. **Teardown:** Delete `rg-labs-storage`.
 
 ---
 
