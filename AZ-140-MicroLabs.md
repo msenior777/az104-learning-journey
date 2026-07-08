@@ -14,18 +14,24 @@
 
 2. **Deploy the Target Resource (West US):**
    * Create a Resource Group named `rg-labs-west` in **West US**.
-   * Deploy a standard, cheap storage account (LRS) or a small B-series Virtual Machine inside `rg-labs-west`.
+   * Instead of fighting the VM size restrictions, deploy a standard Storage Account in `rg-labs-west`. It costs pennies, takes 30 seconds to spin up, and works perfectly for testing cross-region logging boundaries.
+   * **Steps to deploy the Storage Account:**
+     1. In the top search bar, type **Storage accounts** and click **Create**.
+     2. **Resource Group:** Select your newly created `rg-labs-west`.
+     3. **Storage account name:** Give it a unique lowercase name (e.g., `sttargetwest104`).
+     4. **Region:** Make absolutely sure this is set to **West US** (or West US 2 / 3).
+     5. **Performance / Redundancy:** Leave on **Standard** and **Locally-redundant storage (LRS)** to keep it free.
+     6. Click **Review + create**, then click **Create**.
 
 3. **Configure Diagnostic Settings:**
    * Navigate to the resource inside `rg-labs-west`.
-   * Scroll down the left-hand blade to **Monitoring** -> **Diagnostic Settings** and click **Add diagnostic setting**.
+   * Scroll down the left-hand blade to **Monitoring** → **Diagnostic Settings** and click **Add diagnostic setting**.
 
 4. **Test the Architectural Boundaries:**
    * Check the box for **Send to Log Analytics workspace**. Notice that you *can* successfully select the Workspace located in `rg-labs-east`.
    * Check the box for **Stream to an event hub**. Notice if the dropdown restricts you or requires a localized endpoint match.
 
 5. **Teardown:** Run the cleanup script or delete both resource groups manually.
-
 ---
 
 ## 🧪 Lab 2: Persistent Shared Storage & SQL Backup Architectures
