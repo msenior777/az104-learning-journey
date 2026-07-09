@@ -10,13 +10,13 @@
 
 ### Overview
 
-This lab covers creating and managing Azure AD users and groups, assigning RBAC at different scopes, and enforcing governance with Azure Policy. These are the highest-weight topics on the exam — small gains here have the biggest score impact.
+This lab covers creating and managing Entra ID users and groups, assigning RBAC at different scopes, and enforcing governance with Azure Policy. These are the highest-weight topics on the exam — small gains here have the biggest score impact.
 
 ---
 
-### Task 1 — Create and Manage Azure AD Users
+### Task 1 — Create and Manage Entra ID Users
 
-Navigate to **Azure Active Directory → Users → New User** and create a user with the following settings:
+Navigate to **Microsoft Entra ID → Users → New User** and create a user with the following settings:
 
 | Field | Value |
 |---|---|
@@ -43,7 +43,7 @@ Once created, navigate to the user → **Assigned Roles → Add assignment** →
 
 ### Task 2 — Create Groups and Dynamic Membership
 
-Navigate to **Azure Active Directory → Groups → New Group** and create two groups:
+Navigate to **Microsoft Entra ID → Groups → New Group** and create two groups:
 
 **Group 1 — Assigned (Static)**
 
@@ -54,7 +54,7 @@ Navigate to **Azure Active Directory → Groups → New Group** and create two g
 | Membership type | Assigned |
 | Members | Add your lab test user |
 
-**Group 2 — Dynamic** *(requires AAD Premium P1 — read the rule syntax even if you can't apply it on Free)*
+**Group 2 — Dynamic** *(requires Entra ID Premium P1 — read the rule syntax even if you can't apply it on Free)*
 
 | Field | Value |
 |---|---|
@@ -63,14 +63,14 @@ Navigate to **Azure Active Directory → Groups → New Group** and create two g
 | Membership type | Dynamic User |
 | Dynamic rule | `(user.department -eq "IT")` |
 
-> 💡 **Exam Tip:** Dynamic groups require **Azure AD Premium P1**. If a question mentions dynamic membership — think P1 license requirement.
+> 💡 **Exam Tip:** Dynamic groups require **Entra ID Premium P1**. If a question mentions dynamic membership — think P1 license requirement.
 
 > ⚠️ **Watch Out:** Dynamic group membership is **not instant**. It can take up to 24 hours to process. A common exam trap is asking what to do when a user hasn't appeared in a dynamic group 5 minutes after being set to the right department — the answer is simply wait.
 
 **Knowledge Check**
 
 > **Q: What license is required to use Dynamic group membership?**
-> A: Azure AD Premium P1 (or P2).
+> A: Entra ID Premium P1 (or P2).
 
 > **Q: A dynamic group rule is `(user.jobTitle -eq "Developer")`. A user has been set to Developer but hasn't appeared in the group after 10 minutes. What do you do?**
 > A: Wait — dynamic group membership updates can take up to 24 hours.
@@ -152,12 +152,12 @@ Navigate to **Policy → Compliance** to see the compliance state of your resour
 | Concept | What to Remember |
 |---|---|
 | Usage Location | Must be set before assigning a license |
-| Dynamic Groups | Requires AAD P1 · Can take up to 24 hours to update |
+| Dynamic Groups | Requires Entra ID P1 · Can take up to 24 hours to update |
 | RBAC | Additive · No implicit deny · Higher scope wins |
 | Owner vs Contributor | Owner can manage access · Contributor cannot |
 | Azure Policy | Existing non-compliant resources are flagged, NOT deleted |
 | Policy — Modify/DeployIfNotExists | Requires a Managed Identity for remediation |
-| PIM | Just-in-time access · Requires AAD P2 |
+| PIM | Just-in-time access · Requires Entra ID P2 |
 | B2B | Guest users from external orgs via Invitation |
 | B2C | Customer identity management · Separate tenant entirely |
 
@@ -486,7 +486,7 @@ Click **Generate SAS and connection string** → copy the Blob service SAS URL.
 |---|---|
 | Account SAS | Storage account key — access to account-level services |
 | Service SAS | Storage account key — access to a specific resource |
-| User Delegation SAS | Azure AD credentials — most secure option |
+| User Delegation SAS | Entra ID credentials — most secure option |
 
 **Knowledge Check**
 
@@ -516,7 +516,7 @@ azcopy copy "https://<source>.blob.core.windows.net/<container>?<SAS>" \
 
 > 💡 **Exam Tip:** `copy` always transfers everything. `sync` only transfers what's new or different — think of it like `robocopy /MIR`. This distinction is tested directly.
 
-> ⚠️ **Watch Out:** AzCopy requires authentication — either a SAS token appended to the URL, or `azcopy login` for Azure AD auth. It is not authenticated by default.
+> ⚠️ **Watch Out:** AzCopy requires authentication — either a SAS token appended to the URL, or `azcopy login` for Entra ID auth. It is not authenticated by default.
 
 **Large-Scale Transfers — Import/Export Service**
 
